@@ -3,14 +3,14 @@ import React from "react";
 // passing pokemon in a
 function Index({pokemon}) {
 
-  // const overallStyle = {
-  //   color: ""
+  const overallStyle = {
+    color: ""
 
-  // }
+  }
   // style={overallStyle}
 
   return(
-    <div>
+    <div style={overallStyle}>
       <h1>See All That Pokemon!</h1>
         <ul>
           {pokemon.map((pokelist, i) => {
@@ -18,7 +18,7 @@ function Index({pokemon}) {
               // {pokelist}
               <li key={i}>
 
-                <a href={`/pokemon/${pokelist.name}`}>{pokelist.name}</a>
+                <a href={`/pokemon/${i}`}>{pokelist.name}</a>
                 {/* // this is if the images are on the main page */}
                 {/* <img src={`${pokelist.img}.jpg`} alt={pokelist.name} /> */}
               </li>
