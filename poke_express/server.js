@@ -35,11 +35,12 @@ app.get('/pokemon/:num', (req, res) => {
   // res.send(fruits[req.params.indexOfFruitsArray]);
   //test to see if it worked like this, and it did
   // res.send(pokemon[req.params.num] )
-  res.render('Sight', {
+  res.render('Show', {
       pokemon: pokemon[req.params.num]
   });
-
 });
+
+
 
 app.listen(3000, () => {
   console.log("Listening on Port 3000")
