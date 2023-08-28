@@ -1,6 +1,7 @@
 const React = require('react');
 
-const Index = (pokemon) => {
+const Index = ({pokemon}) => {
+  console.log(pokemon)
   return(
     <div>
       <div>
