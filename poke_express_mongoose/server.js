@@ -26,9 +26,30 @@ app.use(methodOverride('_method'));
 //this allows inserted data on the browser or POST Requests, to be converted into a string so that json can recognize the input, and send back to the backend/database/mongodb
 app.use(express.urlencoded({extended:false}));
 
+const basePokeDex = [
+  {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
+  {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
+  {name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
+  {name: "charmander", img: "http://img.pokemondb.net/artwork/charmander"},
+  {name: "charizard", img: "http://img.pokemondb.net/artwork/charizard"},
+  {name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
+  {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
+ ];
+
+Pokemon.insertMany(basePokeDex)
+.then((pokemon) => {
+  console.log(pokemon)
+})
+.catch ((error) => {
+  console.log(error)
+})
+
+
 app.get('/',  (req, res) => {
   res.send('<h1>Welcome to the PokeFiles!</h1>')
 })
+
+
 
 //INDUCES, Index, New, Delete, Update, Create, Edit, Show
 
@@ -104,9 +125,6 @@ app.get("/pokemon/show/:id" , (req, res) => {
       pokemon: Pokemon[req.params._id]
   });
 })
-
-
-
 
 
 app.listen(8000, () => {
