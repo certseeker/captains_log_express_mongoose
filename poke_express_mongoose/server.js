@@ -75,3 +75,13 @@ app.get('/pokemon/new' , (req, res) => {
 app.listen(8000, () => {
   console.log("Listening on Port 8000")
 })
+
+//? Delete....not sure where this button goes
+app.delete('/pokemon/:id', (req, res)=>{
+  Pokemon.deleteOne({_id: req.params.id})
+  .then(info => {
+      console.log(info)
+      res.redirect('/pokemon')
+  })
+  // res.send('deleting...');
+});

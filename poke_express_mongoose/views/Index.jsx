@@ -1,7 +1,7 @@
 const React = require('react');
 
 const Index = ({pokemon}) => {
-  console.log(pokemon)
+  // console.log(pokemon)
   return(
     <div>
       <div>
