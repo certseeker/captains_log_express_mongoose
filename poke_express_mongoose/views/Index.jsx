@@ -10,7 +10,7 @@ const Index = ({pokemon}) => {
         <ul>
           {pokemon.map((pokelist, i) => {
           return (
-              <a href={`/pokemon/${pokelist.i}`}>{pokelist.name}</a>
+              <a href={`/pokemon/${pokelist.i}`}><br/>{pokelist.name}</a>
           )})}
         </ul>
       </div>
