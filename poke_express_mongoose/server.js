@@ -30,7 +30,7 @@ app.get('/',  (req, res) => {
   res.send('<h1>Welcome to the PokeFiles!</h1>')
 })
 
-//INDUCES
+//INDUCES, Index, New, Delete, Update, Create, Edit, Show
 
 //?Index: a collection of all the data from the database
 app.get('/pokemon', (req, res) => {
@@ -72,9 +72,7 @@ app.get('/pokemon/new' , (req, res) => {
   res.render('New');
 })
 
-app.listen(8000, () => {
-  console.log("Listening on Port 8000")
-})
+
 
 //? Delete....not sure where this button goes
 app.delete('/pokemon/:id', (req, res)=>{
@@ -85,3 +83,32 @@ app.delete('/pokemon/:id', (req, res)=>{
   })
   // res.send('deleting...');
 });
+
+//?Update
+
+//?Edit 
+
+//?Create
+app.post('/fruits', (req, res) => {
+  Pokemon.create(req.body)
+  .then((createdPokemon) => {
+    res.redirect('/pokemon')
+  })
+  .catch(error => {
+    console.error(error)
+  })
+});
+
+app.get("/pokemon/show/:id" , (req, res) => {
+  res.render("pokemon/Show" , {
+      pokemon: Pokemon[req.params._id]
+  });
+})
+
+
+
+
+
+app.listen(8000, () => {
+  console.log("Listening on Port 8000")
+})
