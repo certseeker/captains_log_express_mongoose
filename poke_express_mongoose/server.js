@@ -110,7 +110,7 @@ app.delete('/pokemon/:id', (req, res)=>{
 //?Edit 
 
 //?Create
-app.post('/fruits', (req, res) => {
+app.post('/pokemon', (req, res) => {
   Pokemon.create(req.body)
   .then((createdPokemon) => {
     res.redirect('/pokemon')
@@ -120,11 +120,23 @@ app.post('/fruits', (req, res) => {
   })
 });
 
-app.get("/pokemon/show/:id" , (req, res) => {
-  res.render("pokemon/Show" , {
-      pokemon: Pokemon[req.params._id]
-  });
+app.get('/pokemon/show/:id', (req, res) => {
+  Pokemon.findOne({ _id: req.params.id })
+    .then((foundPokemon) => {
+      res.render('Show', {
+        pokemon: foundPokemon
+      })
+    })
+    .catch(error => {
+      console.error(error)
+    })
 })
+
+// app.get("/pokemon/show/:id" , (req, res) => {
+//   res.render("Show" , {
+//       pokemon: Pokemon[req.params._id]
+//   });
+// })
 
 
 app.listen(8000, () => {

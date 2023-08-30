@@ -10,7 +10,9 @@ const Index = ({pokemon}) => {
         <ul>
           {pokemon.map((pokelist, i) => {
           return (
-              <a href={`/pokemon/${pokelist.i}`}><br/>{pokelist.name}</a>
+            <div key={i}>
+              <a href={`/pokemon/show/${pokelist._id}`}><br/>{pokelist.name}</a>
+            </div>
           )})}
         </ul>
       </div>
@@ -28,3 +30,12 @@ module.exports = Index;
 //-not using a key
 //-using allpokemon as a prop and just rendering it in its own div
 //-changing it from a regular funtion to an arrow function, no difference
+
+{/* <ul>
+{pokemon.map((pokelist, i) => {
+return (
+  <div key={i}>
+    <a href={`/pokemon/${pokelist.i}`}><br/>{pokelist.name}</a>
+  </div>
+)})}
+</ul> */}
